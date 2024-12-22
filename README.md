@@ -346,7 +346,7 @@ pipeline{
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name netflix -p 8081:80 nasi101/netflix:latest'
+                sh 'docker run -d --name netflix-${env.BUILD_NUMBER} -p 8081:80 nasi101/netflix:latest'
             }
         }
     }
