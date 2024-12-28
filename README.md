@@ -523,13 +523,12 @@ Note:
 
    You can access Node Exporter metrics in Prometheus.
 
-2. **Configure Prometheus Plugin Integration:**
 
-   Integrate Jenkins with Prometheus to monitor the CI/CD pipeline.
+   To configure Prometheus to scrape metrics from Node Exporter, you need to modify the `prometheus.yml` file. Here is an example `prometheus.yml` configuration for your setup:
 
-   **Prometheus Configuration:**
-
-   To configure Prometheus to scrape metrics from Node Exporter and Jenkins, you need to modify the `prometheus.yml` file. Here is an example `prometheus.yml` configuration for your setup:
+   ```bash
+   sudo vi /etc/prometheus/prometheus.yml
+   ```
 
    ```yaml
    global:
@@ -539,14 +538,7 @@ Note:
      - job_name: 'node_exporter'
        static_configs:
          - targets: ['localhost:9100']
-
-     - job_name: 'jenkins'
-       metrics_path: '/prometheus'
-       static_configs:
-         - targets: ['<your-jenkins-ip>:<your-jenkins-port>']
    ```
-
-   Make sure to replace `<your-jenkins-ip>` and `<your-jenkins-port>` with the appropriate values for your Jenkins setup.
 
    Check the validity of the configuration file:
 
@@ -560,12 +552,12 @@ Note:
    curl -X POST http://localhost:9090/-/reload
    ```
 
-   You can access Prometheus targets at:
+   You can see the node_exporter target now in Prometheus targets at:
 
    `http://<your-prometheus-ip>:9090/targets`
 
 
-####Grafana
+    **Grafana**
 
 **Install Grafana on Ubuntu 22.04 and Set it up to Work with Prometheus**
 
@@ -677,9 +669,47 @@ Grafana is a powerful tool for creating visualizations and dashboards, and you c
 
 That's it! You've successfully installed and set up Grafana to work with Prometheus for monitoring and visualization.
 
-2. **Configure Prometheus Plugin Integration:**
-    - Integrate Jenkins with Prometheus to monitor the CI/CD pipeline.
+2. **Monitor Jenkins with Prometheus:**
+    - Integrate Jenkins with Prometheus to monitor the CI/CD pipeline:
+        - go to: manage Jenkins -> Plugins -> search for "Prometheus metrics" plugin.
+        - you will need to restart Jenkins.
+        - go to: system -> prometheus # you will find prometheus is there, no need to change anything.
 
+    - To configure Prometheus to scrape metrics from Jenkins, you need to add in the `prometheus.yml` file. Here is an example `prometheus.yml` configuration for your setup:
+
+   ```bash
+   sudo vi /etc/prometheus/prometheus.yml
+   ```
+
+    ```yaml
+    global:
+        scrape_interval: 15s
+
+    scrape_configs:
+        - job_name: "jenkins"
+        metrics_path: "/prometheus
+        static_configs:
+            - targets: ["<your-jenkins-ip>:<your-jenkins-port>"]
+    ```
+
+    Make sure to replace `<your-jenkins-ip>` and `<your-jenkins-port>` with the appropriate values for your Jenkins setup.
+
+    Check the validity of the configuration file:
+
+    ```bash
+    promtool check config /etc/prometheus/prometheus.yml
+    ```
+
+    Reload the Prometheus configuration without restarting:
+
+    ```bash
+    curl -X POST http://localhost:9090/-/reload
+    ``` 
+
+    - You can add dashboard for jenkins in grafana:
+        - import dashboard code 
+        - set the data source to prometheus
+        - import dashboard.
 
 **Phase 5: Notification**
 
