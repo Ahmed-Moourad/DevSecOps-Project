@@ -353,19 +353,19 @@ pipeline{
 }
 
 
-If you get docker login failed errorr
-
-sudo su
-sudo usermod -aG docker jenkins
-sudo systemctl restart jenkins
-
 
 ```
 Note:
+    - If you get docker login failed error, run the following commands:
+        ```bash
+        sudo su
+        sudo usermod -aG docker jenkins
+        sudo systemctl restart jenkins
+        ```
     - Don't forget to replace <your_apikey> with your actual API key.
     - Don't forget to replace <your_dockerhub_username> with your actual DockerHub username.
 
-    
+
 **Phase 4: Monitoring**
 
 1. **Install Prometheus and Grafana:**
