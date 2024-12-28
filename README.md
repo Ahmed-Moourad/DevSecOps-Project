@@ -332,7 +332,7 @@ pipeline{
             steps{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
-                       sh "docker build --build-arg TMDB_V3_API_KEY=<yourapikey> -t netflix ."
+                       sh "docker build --build-arg TMDB_V3_API_KEY=<your_apikey> -t netflix ."
                        sh "docker tag netflix nasi101/netflix:latest "
                        sh "docker push nasi101/netflix:latest "
                     }
@@ -346,7 +346,7 @@ pipeline{
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name netflix-${env.BUILD_NUMBER} -p 8081:80 nasi101/netflix:latest'
+                sh 'docker run -d --name netflix-${env.BUILD_NUMBER} -p 8081:80 <your_dockerhub_username>/netflix:latest'
             }
         }
     }
@@ -361,7 +361,11 @@ sudo systemctl restart jenkins
 
 
 ```
+Note:
+    - Don't forget to replace <your_apikey> with your actual API key.
+    - Don't forget to replace <your_dockerhub_username> with your actual DockerHub username.
 
+    
 **Phase 4: Monitoring**
 
 1. **Install Prometheus and Grafana:**
