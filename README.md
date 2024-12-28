@@ -333,15 +333,15 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){   
                        sh "docker build --build-arg TMDB_V3_API_KEY=<your_apikey> -t netflix ."
-                       sh "docker tag netflix nasi101/netflix:latest "
-                       sh "docker push nasi101/netflix:latest "
+                       sh "docker tag netflix <your_dockerhub_username>/netflix:latest "
+                       sh "docker push <your_dockerhub_username>/netflix:latest "
                     }
                 }
             }
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image nasi101/netflix:latest > trivyimage.txt" 
+                sh "trivy image <your_dockerhub_username>/netflix:latest > trivyimage.txt" 
             }
         }
         stage('Deploy to container'){
