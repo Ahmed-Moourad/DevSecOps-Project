@@ -793,9 +793,9 @@ Replace 'your-job-name' with a descriptive name for your job. The static_configs
 Check the validity of the configuration file:
 
 
-    ```bash
-    promtool check config /etc/prometheus/prometheus.yml
-    ```
+   ```bash
+   promtool check config /etc/prometheus/prometheus.yml
+   ```    
 
    Reload the Prometheus configuration without restarting:
 
