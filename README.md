@@ -797,7 +797,7 @@ Replace 'your-job-name' with a descriptive name for your job. The static_configs
 
 Check the validity of the configuration file:
 
-```bash
+    ```bash
    promtool check config /etc/prometheus/prometheus.yml
    ```
 
@@ -828,6 +828,13 @@ To deploy an application with ArgoCD, you can follow these steps, which I'll out
    - `syncPolicy`: Configure the sync policy, including automatic syncing, pruning, and self-healing.
 
 4. **Access your Application**
+
+    You will find the app running on a service of type LoadBalancer:
+
+   ```bash
+   kubectl get svc
+   ```
+   # if you use a service of type NodePort:
    - To Access the app make sure port 30007 is open in your security group and then open a new tab paste your NodeIP:30007, your app should be running.
 
 **Phase 7: Cleanup**
