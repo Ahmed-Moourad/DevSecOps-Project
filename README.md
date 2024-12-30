@@ -781,7 +781,7 @@ Add a Job to Scrape Metrics on nodeip:9001/metrics in prometheus.yml:
 Update your Prometheus configuration (prometheus.yml) to add a new job for scraping metrics from nodeip:9001/metrics. You can do this by adding the following configuration to your prometheus.yml file:
 
 
-```
+```yaml
   - job_name: 'Netflix'
     metrics_path: '/metrics'
     static_configs:
@@ -793,16 +793,15 @@ Replace 'your-job-name' with a descriptive name for your job. The static_configs
 Check the validity of the configuration file:
 
     ```bash
-   promtool check config /etc/prometheus/prometheus.yml
-   ```
+    promtool check config /etc/prometheus/prometheus.yml
+    ```
 
    Reload the Prometheus configuration without restarting:
 
    ```bash
    curl -X POST http://localhost:9090/-/reload
-
-
    ```
+
 To deploy an application with ArgoCD, you can follow these steps, which I'll outline in Markdown format:
 
 ### Deploy Application with ArgoCD
@@ -826,10 +825,11 @@ To deploy an application with ArgoCD, you can follow these steps, which I'll out
 
     You will find the app running on a service of type LoadBalancer:
 
-   ```bash
-   kubectl get svc
-   ```
-   # if you use a service of type NodePort:
+    ```bash
+    kubectl get svc
+    ```
+
+   if you use a service of type NodePort:
    - To Access the app make sure port 30007 is open in your security group and then open a new tab paste your NodeIP:30007, your app should be running.
 
 **Phase 7: Cleanup**
