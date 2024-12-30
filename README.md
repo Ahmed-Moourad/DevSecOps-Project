@@ -793,10 +793,21 @@ Update your Prometheus configuration (prometheus.yml) to add a new job for scrap
       - targets: ['node1Ip:9100']
 ```
 
-Replace 'your-job-name' with a descriptive name for your job. The static_configs section specifies the targets to scrape metrics from, and in this case, it's set to nodeip:9001.
+Replace 'your-job-name' with a descriptive name for your job. The static_configs section specifies the targets to scrape metrics from, and in this case, it's set to nodeip:9001. Also don't forget to open port 9001 on the EKS node SG.
 
-Don't forget to reload or restart Prometheus to apply these changes to your configuration.
+Check the validity of the configuration file:
 
+```bash
+   promtool check config /etc/prometheus/prometheus.yml
+   ```
+
+   Reload the Prometheus configuration without restarting:
+
+   ```bash
+   curl -X POST http://localhost:9090/-/reload
+
+
+   ```
 To deploy an application with ArgoCD, you can follow these steps, which I'll outline in Markdown format:
 
 ### Deploy Application with ArgoCD
