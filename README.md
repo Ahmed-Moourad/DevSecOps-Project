@@ -147,13 +147,13 @@ Goto Manage Jenkins →Plugins → Available Plugins →
 
 Install below plugins
 
-1 Eclipse Temurin Installer (Install without restart)
+1- Eclipse Temurin Installer (Install without restart)
 
-2 SonarQube Scanner (Install without restart)
+2- SonarQube Scanner (Install without restart)
 
-3 NodeJs Plugin (Install Without restart)
+3- NodeJs Plugin (Install Without restart)
 
-4 Email Extension Plugin
+4- Email Extension Plugin
 
 ### **Configure Java and Nodejs in Global Tool Configuration**
 
@@ -351,12 +351,15 @@ pipeline{
 
 ```
 Note:
+
     - If you get docker login failed error, run the following commands:
+
         ```bash
         sudo su
         sudo usermod -aG docker jenkins
         sudo systemctl restart jenkins
         ```
+        
     - Don't forget to replace <your_apikey> with your actual API key.
     - Don't forget to replace <your_dockerhub_username> with your actual DockerHub username.
 
