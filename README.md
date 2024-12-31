@@ -351,12 +351,11 @@ pipeline{
 Note:
 
     - If you get docker login failed error, run the following commands:
-
-        ```bash
+```bash
         sudo su
         sudo usermod -aG docker jenkins
         sudo systemctl restart jenkins
-        ```
+```
 
 
     - Don't forget to replace <your_apikey> with your actual API key.
