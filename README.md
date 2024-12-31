@@ -727,7 +727,9 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
         - in Default Content Type: HTML
         - in Default Triggers: choose Always
 
-    ```yaml
+    - add this in the end of the your pipeline script: 
+
+    ```groovy
         - in jenkins pipeline script:
         post {
         always {
