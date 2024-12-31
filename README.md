@@ -695,7 +695,7 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
     ``` 
 
     - You can add dashboard for jenkins in grafana:
-        - import dashboard code 
+        - import dashboard code (eg: 9964)
         - set the data source to prometheus
         - import dashboard.
 
