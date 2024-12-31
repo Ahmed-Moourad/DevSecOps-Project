@@ -526,10 +526,6 @@ Note:
    ```
 
    ```yaml
-   global:
-     scrape_interval: 15s
-
-   scrape_configs:
      - job_name: 'node_exporter'
        static_configs:
          - targets: ['localhost:9100']
@@ -677,12 +673,9 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
    ```
 
     ```yaml
-    global:
-        scrape_interval: 15s
 
-    scrape_configs:
         - job_name: "jenkins"
-        metrics_path: "/prometheus
+        metrics_path: "/prometheus"
         static_configs:
             - targets: ["<your-jenkins-ip>:<your-jenkins-port>"]
     ```
