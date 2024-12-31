@@ -347,9 +347,8 @@ pipeline{
     }
 }
 
-
-
 ```
+
 Note:
 
     - If you get docker login failed error, run the following commands:
