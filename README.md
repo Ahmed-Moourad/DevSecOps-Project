@@ -704,7 +704,7 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 1. **Implement Notification Services:**
     - Set up email notifications in Jenkins or other notification mechanisms.
     - generate an app password from your Gmail: security -> app password -> generate
-    in Jenkins: add it in the credentials section.
+    - in Jenkins: add it in the credentials section.
     - in Jenkins go to: manage Jenkins -> configure system -> E-mail notification
         - smtp server: smtp.gmail.com
         - Default user e-mail suffix: YOU_MAIL@gmail.com
