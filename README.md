@@ -743,7 +743,7 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 
 ## Create Kubernetes Cluster with Nodegroups
 
-In this phase, you'll set up a Kubernetes cluster with node groups. This will provide a scalable environment to deploy and manage your applications.
+In this phase, you'll set up a EKS cluster with node groups. This will provide a scalable environment to deploy and manage your applications.
 
 ### Deploy Application with ArgoCD
 
