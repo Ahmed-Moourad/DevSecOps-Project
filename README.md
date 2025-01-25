@@ -745,6 +745,11 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 
 In this phase, you'll set up a EKS cluster with node groups. This will provide a scalable environment to deploy and manage your applications.
 
+connect to the cluster using this command :
+    ```bash
+    aws eks update-kubeconfig --region YOUR_REGION --name YOUR_CLUSTER_NAME
+    ```
+
 ### Deploy Application with ArgoCD
 
 To deploy an application with ArgoCD, you can follow these steps, which I'll outline in Markdown format:
