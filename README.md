@@ -747,9 +747,10 @@ In this phase, you'll set up a EKS cluster with node groups. This will provide a
 
 connect to the cluster using this command :
 
-    ```bash
+
+  ```bash
     aws eks update-kubeconfig --region YOUR_REGION --name YOUR_CLUSTER_NAME
-    ```
+  ```
 
 ### Deploy Application with ArgoCD
 
